@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - PyNEWS</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 10, "opsz" 100;
+        font-size: 40px;
+        color: rgb(78, 121, 107);
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(
+          to top left,
+          rgb(37, 70, 66),
+          rgb(143, 211, 224)
+        );
+      }
+
+      .loginCard {
+        box-shadow: 10px 12px 10svw;
+        padding: 10vmin;
+        background: linear-gradient(
+          to bottom right,
+          rgb(16, 53, 48),
+          rgb(135, 164, 170)
+        );
+        border-radius: 10px;
+      }
+
+      .textbox {
+        display: block;
+        margin: 10px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid rgb(216, 216, 205);
+        background-color: rgb(70, 158, 155);
+        color: wheat;
+        opacity: 0.6;
+        font-family: "Quicksand", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+      .textbox::placeholder {
+        color: rgb(237, 227, 208);
+      }
+
+      .loginbtn {
+        font-size: 16px;
+        border: 1px solid rgb(87, 101, 111);
+        border-radius: 10px;
+        padding: 10px 20px;
+        background: linear-gradient(
+          to bottom left,
+          rgb(99, 52, 90),
+          rgb(100, 201, 201)
+        );
+        /* box-shadow:12px 8px 12px; */
+        color: rgb(135, 194, 185);
+        opacity: 0.7;
+        font-family: "Quicksand", sans-serif;
+      }
+
+      label {
+        font-size: 18px;
+        color: white;
+      }
+      .btndiv {
+        display: flex;
+        justify-content: center;
+      }
+
+      #headLine {
+        color: white;
+        font-size: 18px;
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loginCard">
+      <span class="material-symbols-outlined"> account_box </span>
+      <p id="headLine">Lets get you logged in !!</p>
+      <form action="/login" method="post">
+        <input
+          class="textbox"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter username"
+        />
+        <input
+          class="textbox"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+        />
+        <div class="btndiv">
+          <input class="loginbtn" type="submit" value="Login" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+/venv/*
+/templates/pics/*
+env
+notes.md
+/.idea/
+/__pycache__/
