@@ -32,8 +32,8 @@ PyNEWS is a web application that allows users to browse and search for news arti
 
 3. Set up MySQL database:
 
-   - Create a MySQL database named `pynews`.
-   - Update the database configuration in `config.py`.
+   - Create a MySQL database named `pynews`, A `docker-compose.yaml` is provided for quick setup.
+   - Update the database configuration in `db_connectivity.py`.
 
 4. Run the application:
 
