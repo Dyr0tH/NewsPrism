@@ -1,4 +1,3 @@
-
 import requests
 
 def fetch_news(api_key, query, sources=None):

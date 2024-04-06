@@ -4,3 +4,5 @@ env
 notes.md
 /.idea/
 /__pycache__/
+/test/*
+/.vscode/*
