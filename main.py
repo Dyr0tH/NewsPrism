@@ -11,13 +11,11 @@ app.secret_key = secrets.token_hex(16)
 
 @app.route('/', methods=['GET', 'POST']) # homepage handling
 def home():
+        username = session.get('username')
         if request.method == 'POST':
-               username = session.get('username')
                articles = fetcher.fetchmain(request.form['topic'])
                return render_template('index.html', articles=articles, username=username)
 
-
-        username = session.get('username')
         articles = fetcher.fetchmain()
         return render_template('index.html', articles=articles, username=username)
 
@@ -36,6 +34,7 @@ def login():
                         return redirect(url_for('home'))
                 else:
                         return 'Invalid username or password <a herf="/login">Try Again !!</a>'
+
         else:
                 return render_template('login.html')
 
@@ -44,3 +43,6 @@ def login():
 def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
+
+if __name__ == "__main__":
+       app.run(host='0.0.0.0', port=8000)
