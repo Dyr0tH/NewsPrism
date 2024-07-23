@@ -37,7 +37,7 @@
         box-shadow: 10px 12px 10svw;
         padding: 10vmin;
         background: linear-gradient(
-          to bottom right,
+          to top left,
           rgb(16, 53, 48),
           rgb(135, 164, 170)
         );
@@ -95,26 +95,43 @@
         font-style: normal;
       }
 
-      .signupText{
-        color: aliceblue;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      .pfp_button{
+        width: 12vh;
+        background-repeat: no-repeat;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-position: center;  /* Center the icon within the button */
+        padding: 10px;   /* Adjust padding for your content */
+        cursor: pointer;  /* Indicate clickable behavior */
+        display: inline-block;  /* Ensures block-level behavior */
+        border: 2px solid rgb(124, 194, 211);
+        border-style: dashed;
+        color: rgb(235, 235, 255);
       }
-
-      .signupText > a{
-        text-decoration: none;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: rgb(255, 255, 255);
-        border: 2px dashed;
-        padding: 5px;
-        border-radius: 12px;
-      }
+      
     </style>
   </head>
   <body>
     <div class="loginCard">
-      <span class="material-symbols-outlined"> account_box </span>
-      <p id="headLine">Lets get you logged in !!</p>
-      <form action="/login" method="post">
+      
+      <form action="/signup" method="POST" enctype="multipart/form-data">
+
+        <label for="user_pfp" class="pfp_button"> choose a PFP!</label>
+        <input
+        type="file"
+        name="user_pfp"
+        id="user_pfp"
+        accept="image/*"
+        style="display: none;"
+      />
+
+        <input
+          class="textbox"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+        />
+
         <input
           class="textbox"
           type="text"
@@ -129,14 +146,20 @@
           name="password"
           placeholder="Enter password"
         />
+        <input
+          class="textbox"
+          type="password"
+          id="repassword"
+          name="repassword"
+          placeholder="Re-enter password"
+        />
+
+        <textarea name="bio" id="bio" rows="5" class="textbox" placeholder="Tells us something about yourself !!"></textarea>
+        
         <div class="btndiv">
-          <input class="loginbtn" type="submit" value="Login" />
+          <input class="loginbtn" type="submit" value="SignUp" />
         </div>
       </form>
-      <div class="signupDiv">
-        <p class="signupText">No account with us yet? <a href="/signup">SignUp!!</a></p>
-
-      </div>
     </div>
   </body>
 </html>

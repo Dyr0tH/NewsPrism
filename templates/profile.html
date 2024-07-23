@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --gradebackcol1: #16222a;
+        --gradebackcol2: #3a6073;
+      }
+
+      body {
+        background-color: rgb(51, 48, 48);
+        /* background: linear-gradient(var(--gradebackcol1), var(--gradebackcol2)); */
+        background-repeat: no-repeat;
+      }
+
+      .userInfo {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+      }
+
+      .userImg {
+        margin: 3px;
+        border-radius: 100%;
+        overflow: hidden;
+        width: 212px;
+        min-width: 200px;
+        height: 212px;
+        display: flex;
+        align-items: center;
+      }
+
+      .userData {
+        margin: 3px;
+        width: 90%;
+        padding: 1rem;
+        height: max-content;
+      }
+
+      .textcommon {
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .userName {
+        font-size: 25px;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-weight: 500;
+      }
+
+      .userFullName {
+        font-size: 20px;
+        margin-top: 1rem;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      .bio {
+        margin-top: 1rem;
+        font-size: 18px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      .userArticles {
+        margin: 10px;
+        border: 2px solid black;
+        border-radius: 16px;
+        padding: 5px;
+      }
+
+      .userArticles h1 {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        margin: 1rem;
+      }
+
+      .articleList {
+        display: flex;
+        margin: 20px;
+        justify-content: center;
+      }
+
+      .addArticleButton {
+        font-size: large;
+        padding: 1vmin;
+        border-radius: 5px;
+        background-color: rgb(51, 142, 221);
+        color: white;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .addArticleButton:hover {
+        background-color: rgb(191, 191, 224);
+      }
+
+      .card {
+        margin: 12px;
+        display: flex;
+        border-radius: 12px;
+        background-color: #3a6073;
+      }
+
+      .card-image {
+        width: 30%;
+        border-radius: 12px;
+        margin: 12px;
+      }
+
+      .card-content {
+        padding: 12px;
+      }
+
+      .userProfilePicture {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        align-items: center;
+        object-fit: cover;
+      }
+
+      .articleSubmitForm > label {
+        color: white;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .article_picture_select {
+        width: 12vh;
+        background-repeat: no-repeat;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        background-position: center; /* Center the icon within the button */
+        padding: 10px; /* Adjust padding for your content */
+        cursor: pointer; /* Indicate clickable behavior */
+        display: inline-block; /* Ensures block-level behavior */
+        color: rgb(235, 235, 255);
+        display: block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .articleSubmitForm {
+        margin: 2vmax;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0px;
+        width: 12vmax;
+      }
+
+      input[type="file"],
+      input[type="text"],
+      textarea {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+    </style>
+
+    <script>
+      const button = document.querySelector(".article_picture_select");
+      const input = document.getElementById("imageInput");
+
+      input.addEventListener("change", (event) => {
+        if (event.target.files.length > 0) {
+          button.textContent = "Picture selected";
+        } else {
+          button.textContent = "Select a picture";
+        }
+      })
+    </script>
+
+  </head>
+
+  <body>
+    <div class="userInfo">
+      <div class="userImg">
+        <img
+          src="/uploads/pfps/{{profilePic}}"
+          alt="Profile picture not found"
+          class="userProfilePicture"
+        />
+      </div>
+      <div class="userData">
+        <p class="userName textcommon">@ {{ username }}</p>
+
+        <p class="userFullName textcommon">Full Name - {{ userFullName }}</p>
+
+        <p class="bio textcommon">{{ userBio }}</p>
+      </div>
+    </div>
+
+    <form
+      action="/submit_article"
+      method="POST"
+      enctype="multipart/form-data"
+      class="articleSubmitForm"
+    >
+      <label for="article_picture">Article Picture:</label>
+      <label for="article_picture" class="article_picture_select">
+        choose a PFP!</label
+      >
+      <input
+        type="file"
+        name="article_picture"
+        id="article_picture"
+        accept="image/*"
+        style="display: none"
+        required
+      />
+
+      <label for="article_title">Article Title:</label>
+      <input
+        type="text"
+        name="article_title"
+        id="article_title"
+        required
+      /><br />
+
+      <label for="article_description">Article Description:</label>
+      <textarea
+        name="article_description"
+        id="article_description"
+        cols="30"
+        rows="8"
+        required
+      ></textarea
+      ><br />
+
+      <input type="submit" value="Submit Article" class="addArticleButton" />
+    </form>
+
+    <div class="userArticles textcommon">
+      <h1>Your Articles</h1>
+
+      {% if articles %} {% for article in articles %}
+
+      <div class="card">
+        <img
+          src="/uploads/{{article[0]}}"
+          alt="Card image"
+          class="card-image"
+        />
+        <div class="card-content">
+          <h2 class="card-title textcommon">{{ article[1] }}</h2>
+          <p class="card-description textcommon">{{ article[2] }}</p>
+          <span class="card-date textcommon">{{ article[3] }}</span>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <div class="articleList textcommon">
+        <h2>"You have not written any post here :("</h2>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

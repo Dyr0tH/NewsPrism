@@ -1,6 +1,6 @@
-# PyNEWS
+# NewsPrism
 
-PyNEWS is a web application that allows users to browse and search for news articles. The application is built using Python for the backend, with HTML, CSS, and JavaScript for the frontend. It uses MySQL as the database to store user data and article information.
+NewsPrism is a web application that allows users to browse and search for news articles. The application is built using Python for the backend, with HTML, CSS, and JavaScript for the frontend. It uses MySQL as the database to store user data and article information.
 
 ## Features
 
@@ -23,24 +23,20 @@ PyNEWS is a web application that allows users to browse and search for news arti
    ```
    git clone https://github.com/your_username/PyNEWS.git
    ```
-
 2. Install dependencies:
 
    ```
    pip install -r requirements.txt
    ```
-
 3. Set up MySQL database:
 
-   - Create a MySQL database named `pynews`, A `docker-compose.yaml` is provided for quick setup.
+   - Create a MySQL database named `pynews`, A `b` is provided for quick setup.
    - Update the database configuration in `db_connectivity.py`.
-
 4. Run the application:
 
    ```
    flask --app ./main.py run
    ```
-
 5. Access the application in your web browser:
 
    ```

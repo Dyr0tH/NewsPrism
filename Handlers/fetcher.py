@@ -39,6 +39,7 @@ def fetch_news(api_key, query, sources=None):
             'apiKey': api_key,
             'country': 'in'
         }
+        
         response = requests.get(url, params=params)
         data = response.json()
         return data
