@@ -21,7 +21,7 @@ NewsPrism is a web application that allows users to browse and search for news a
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your_username/PyNEWS.git
+   git clone https://github.com/Dyr0tH/NewsPrism.git
    ```
 2. Install dependencies:
 
@@ -30,8 +30,8 @@ NewsPrism is a web application that allows users to browse and search for news a
    ```
 3. Set up MySQL database:
 
-   - Create a MySQL database named `pynews`, A `b` is provided for quick setup.
-   - Update the database configuration in `db_connectivity.py`.
+   - Create a MySQL database named `newsprism`, A `b` is provided for quick setup.
+   - Update the database configuration in `Handlers/db_connectivity.py`.
 4. Run the application:
 
    ```
@@ -45,4 +45,4 @@ NewsPrism is a web application that allows users to browse and search for news a
 
 ## Contributing
 
-Contributions are welcome! If you would like to contribute to PyNEWS, please fork the repository and submit a pull request with your changes.
+Contributions are welcome! If you would like to contribute to NewsPrism, please fork the repository and submit a pull request with your changes.
