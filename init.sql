@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS USERS (
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   bio VARCHAR(255) NOT NULL,
-  profile_picture BLOB,
+  profile_picture VARCHAR(255),
   PRIMARY KEY (username)
 );
 

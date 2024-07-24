@@ -14,11 +14,17 @@
       :root {
         --gradebackcol1: #16222a;
         --gradebackcol2: #3a6073;
+
+        --gradcol1: #383d3f;
+        --gradecol2: #178081;
+
+        --gradcardcol1: #141E30;
+        --gradcardcol2: #243B55;
       }
 
+
       body {
-        background-color: rgb(51, 48, 48);
-        /* background: linear-gradient(var(--gradebackcol1), var(--gradebackcol2)); */
+        background: linear-gradient(var(--gradebackcol1), var(--gradebackcol2));
         background-repeat: no-repeat;
       }
 
@@ -93,7 +99,7 @@
         font-size: large;
         padding: 1vmin;
         border-radius: 5px;
-        background-color: rgb(51, 142, 221);
+        background: linear-gradient(to bottom right, var(--gradcol1), var(--gradecol2));
         color: white;
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
@@ -106,7 +112,7 @@
         margin: 12px;
         display: flex;
         border-radius: 12px;
-        background-color: #3a6073;
+        background: linear-gradient(var(--gradcardcol1), var(--gradcardcol2));
       }
 
       .card-image {
@@ -144,7 +150,7 @@
         display: block;
         margin-top: 10px;
         padding: 10px 20px;
-        background-color: #007bff;
+        background: linear-gradient(to top left,var(--gradcol1), var(--gradecol2));
         border: none;
         border-radius: 3px;
         cursor: pointer;
@@ -175,6 +181,21 @@
       textarea {
         resize: vertical;
       }
+
+      @media screen and (max-width: 500px) {
+        .card {
+          display:block;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .card-image {
+          width: 90%;
+          border-radius: 12px;
+          margin: 12px;
+          grid-row: 1;
+        }
+      }
     </style>
 
     <script>
@@ -187,9 +208,8 @@
         } else {
           button.textContent = "Select a picture";
         }
-      })
+      });
     </script>
-
   </head>
 
   <body>
@@ -218,7 +238,7 @@
     >
       <label for="article_picture">Article Picture:</label>
       <label for="article_picture" class="article_picture_select">
-        choose a PFP!</label
+        choose an image!</label
       >
       <input
         type="file"
@@ -257,7 +277,7 @@
 
       <div class="card">
         <img
-          src="/uploads/{{article[0]}}"
+          src="/uploads/aesthetic-lavender-fields-clouds-desktop-wallpaper.jpg"
           alt="Card image"
           class="card-image"
         />

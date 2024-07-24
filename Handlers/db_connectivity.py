@@ -151,6 +151,28 @@ def retrive_user_articles(username):
         conn.close()
 
 
+def retrive_all_verses():
+    '''
+    Retrives all the verses(articles) from centeralized table
+    '''
+
+    try:
+        conn = mysql.connector.connect(**config)
+        cursor = conn.cursor()
+
+        query = "SELECT article_picture, article_title, article_description, published_date, username FROM ARTICLES"
+        cursor.execute(query)
+
+        verses = cursor.fetchall()
+        return verses
+
+    except mysql.connector.Error as e:
+        print('Error while retrieving verses: ', e)
+
+    finally:
+        cursor.close()
+        conn.close()
+    
 def serve_profile_data(username):
     '''
     Retrives users' data such as their name, profile pic and bio (too lazy to add bio) and sends it to their profile page
@@ -176,4 +198,4 @@ def serve_profile_data(username):
         conn.close()
 
 if __name__ == '__main__':
-    retrive_user_articles('shahid')
+    print(retrive_all_verses())

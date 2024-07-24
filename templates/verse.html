@@ -113,6 +113,11 @@
         margin: 5px;
       }
 
+      .userText{
+        color: white;
+        font-family: "Balthazar", serif;
+      }
+
 
       @media screen and (max-width: 500px) {
 
@@ -131,8 +136,8 @@
         nav form input{
           width: 20vmax;
         }
-      }
 
+      }
     </style>
   </head>
   <body>
@@ -147,9 +152,10 @@
       <a
           class="btn btn-primary"
           style="margin: 0px 5px"
-          href="/view_verses"
+          href="/"
           role="button"
-          >View Verses</a>
+          >Home</a>
+
 
         <div class="formdiv">
           <form role="search" method="POST" action="/">
@@ -191,23 +197,20 @@
       </div>
     </nav>
 
-    {% if articles %} {% for article in articles %}
+    {% if verses %} {% for verse in verses %}
     <div class="card">
-      <div class="cardimg"><img src="{{ article.img_src }}" alt="" /></div>
+      <div class="cardimg"><img src="/uploads/{{verse[0]}}" alt="" /></div>
       <div class="cardtext">
-        <h2 id="newsTitle">{{ article.news_title }}</h2>
-        <p id="newsDesc">{{ article.desc_text }}</p>
-        <small>Published at: {{ article.publish_date }}</small>
-        <div class="buttonarea">
-          <button type="button" class="btn btn-primary">
-            <a href="{{ article.news_link }}">Read</a>
-          </button>
-        </div>
+        <h2 id="verseTitle">{{ verse[1] }}</h2>
+        <p id="verseDesc">{{ verse[2] }}</p>
+        <small>Published at: {{ verse[3] }}</small>
+
+        <p class="userText">Written by: @{{verse[4]}}</p>
       </div>
     </div>
     <br />
     {% endfor %} {% else %}
-    <h1>No article found</h1>
+    <h1>No verses found</h1>
     {% endif %}
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

@@ -8,3 +8,4 @@ notes.md
 /.vscode/*
 /uploads/pfps/*.*
 /uploads/*.*
+/Handlers/__pycache__/*

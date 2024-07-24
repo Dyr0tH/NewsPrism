@@ -115,6 +115,13 @@ def submit_article():
 
        else:
               return redirect(url_for('login'))
+       
+
+@app.route('/view_verses', methods=['GET']) # handles the page of verses (user-written articles)
+def view_verses():
+       username = session.get('username')
+       verses = db_connectivity.retrive_all_verses()
+       return render_template('verse.html', verses=verses, username=username)
 
 
 if __name__ == "__main__":
